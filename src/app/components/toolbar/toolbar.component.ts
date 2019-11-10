@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { OverlayService } from 'src/app/services/overlay.service';
+import { EventsListPopupComponent } from '../events-list-popup/events-list-popup.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,9 +8,25 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
+  toolbarIcons = [
+    {
+      icon: 'event_available',
+      click: () => this.openEventsOverlay()
+    },
+    {
+      icon: 'search'
+    }
+  ];
+
   @Output() sidenavToggled = new EventEmitter();
+
+  constructor(private overlayService: OverlayService) {}
 
   toggleSidenav() {
     this.sidenavToggled.emit();
+  }
+
+  openEventsOverlay() {
+    this.overlayService.open(EventsListPopupComponent);
   }
 }

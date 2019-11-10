@@ -8,15 +8,11 @@
     <a routerLink="/home">CitiHacks Users UI</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-    <ul fxLayout fxLayoutGap="15px" class="toolbar-items">
-      <li>
-        <a routerLink="/home">Home</a>
-      </li>
-      <li>
-        <a routerLink="/home">Events</a>
-      </li>
-      <li>
-        <a routerLink="/home">Ask a Question</a>
+    <ul fxLayout fxLayoutGap="20px">
+      <li #toolbarIcons *ngFor="let item of toolbarIcons" class="toolbar-icon" (click)="item.click()">
+        <button mat-icon-button>
+          <mat-icon> {{ item.icon }} </mat-icon>
+        </button>
       </li>
     </ul>
   </div>

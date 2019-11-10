@@ -10,10 +10,6 @@ export class SidenavListComponent {
 
   sidenavListItems = [
     {
-      name: 'Home',
-      icon: 'home'
-    },
-    {
       name: 'Events',
       icon: 'event_available'
     },
