@@ -1,0 +1,15 @@
+.events-popup-container {
+  background-color: white;
+
+  .event-name,
+  .event-description {
+    color: black;
+  }
+
+  .event {
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(182, 179, 179)
+    }
+  }
+}

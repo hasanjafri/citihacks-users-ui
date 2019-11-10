@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { OverlayService } from 'src/app/services/overlay.service';
+import { EventsListPopupComponent } from '../events-list-popup/events-list-popup.component';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -11,7 +13,8 @@ export class SidenavListComponent {
   sidenavListItems = [
     {
       name: 'Events',
-      icon: 'event_available'
+      icon: 'event_available',
+      click: () => this.openEventsOverlay()
     },
     {
       name: 'Ask a Question',
@@ -19,7 +22,13 @@ export class SidenavListComponent {
     }
   ];
 
+  constructor(private overlayService: OverlayService) {}
+
   closeSidenav() {
     this.sidenavClosed.emit();
+  }
+
+  openEventsOverlay() {
+    this.overlayService.open(EventsListPopupComponent);
   }
 }
