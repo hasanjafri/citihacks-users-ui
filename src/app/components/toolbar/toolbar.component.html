@@ -4,9 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div>
-    <a routerLink="/home">CitiHacks Users UI</a>
-  </div>
+  <button mat-button class="title"> CitiHacks Users UI </button>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="20px">
       <li #toolbarIcons *ngFor="let item of toolbarIcons" class="toolbar-icon" (click)="item.click()">
