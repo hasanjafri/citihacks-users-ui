@@ -1,9 +1,9 @@
 <div class="events-popup-container">
-  <h2>Events happening right now...</h2>
+  <h2 class="events-popup-title">Events happening right now...</h2>
   <mat-list>
     <mat-list-item class="event" *ngFor="let event of events">
-      <img matListAvatar [src]="event.img" alt="event.name">
-      <h3 matLine class="event-name"> {{ event.name }} </h3>
+      <img matListAvatar [src]="event.img" alt="event.name" />
+      <h3 matLine class="event-name">{{ event.name }}</h3>
       <p matLine class="event-description">
         <span> {{ event.description }} </span>
       </p>

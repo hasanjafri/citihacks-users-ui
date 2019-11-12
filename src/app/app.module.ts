@@ -14,9 +14,10 @@ import { EventsListPopupComponent } from './components/events-list-popup/events-
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './views/home/home.component';
+import { EventDetailComponent } from './views/event-detail/event-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ToolbarComponent, SidenavListComponent, EventsListPopupComponent],
+  declarations: [AppComponent, HomeComponent, ToolbarComponent, SidenavListComponent, EventsListPopupComponent, EventDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

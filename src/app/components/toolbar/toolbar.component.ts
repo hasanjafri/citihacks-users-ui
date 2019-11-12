@@ -12,9 +12,6 @@ export class ToolbarComponent {
     {
       icon: 'event_available',
       click: () => this.openEventsOverlay()
-    },
-    {
-      icon: 'search'
     }
   ];
 
