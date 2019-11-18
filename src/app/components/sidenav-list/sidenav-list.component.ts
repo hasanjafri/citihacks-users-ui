@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { OverlayService } from 'src/app/services/overlay.service';
+import { AskQuestionComponent } from '../ask-question/ask-question.component';
 import { EventsListPopupComponent } from '../events-list-popup/events-list-popup.component';
 
 @Component({
@@ -17,8 +18,9 @@ export class SidenavListComponent {
       click: () => this.openEventsOverlay()
     },
     {
-      name: 'Ask a Question',
-      icon: 'question_answer'
+      name: 'Ask  a Question',
+      icon: 'question_answer',
+      click: () => this.openQuestionOverlay()
     }
   ];
 
@@ -30,5 +32,9 @@ export class SidenavListComponent {
 
   openEventsOverlay() {
     this.overlayService.open(EventsListPopupComponent);
+  }
+
+  openQuestionOverlay() {
+    this.overlayService.open(AskQuestionComponent);
   }
 }
