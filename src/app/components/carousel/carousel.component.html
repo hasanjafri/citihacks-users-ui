@@ -1,0 +1,15 @@
+<ngu-carousel #carousel [inputs]="carouselTileConfig" [dataSource]="carouselTileItems | async">
+  <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate">
+    <div class="tile">
+      <h1>{{ i + 1 }}</h1>
+    </div>
+  </ngu-tile>
+
+  <button NguCarouselPrev class="leftRs" [style.opacity]="carousel.isFirst ? 0.5 : 1">&lt;</button>
+  <button NguCarouselNext class="rightRs" [style.opacity]="carousel.isLast ? 0.5 : 1">&gt;</button>
+
+  <ul class="pagination" NguCarouselPoint>
+    <li *ngFor="let i of carousel.pointNumbers; let i = index" [class.active]="i == carousel.activePoint"
+      (click)="carousel.moveTo(i)"></li>
+  </ul>
+</ngu-carousel>

@@ -8,16 +8,25 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NguCarouselModule } from '@ngu/carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { EventsListPopupComponent } from './components/events-list-popup/events-list-popup.component';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { HomeComponent } from './views/home/home.component';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
-
+import { HomeComponent } from './views/home/home.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ToolbarComponent, SidenavListComponent, EventsListPopupComponent, EventDetailComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ToolbarComponent,
+    SidenavListComponent,
+    EventsListPopupComponent,
+    EventDetailComponent,
+    CarouselComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +37,8 @@ import { EventDetailComponent } from './views/event-detail/event-detail.componen
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    OverlayModule
+    OverlayModule,
+    NguCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],
