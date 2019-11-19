@@ -7,10 +7,23 @@ import { Observable, Observer, Subject } from 'rxjs';
 export class EventsService {
   private cacheSubject: Map<string, Subject<any>> = new Map<string, Subject<any>>();
   private subject: Subject<any>;
-  private urlPrefix = 'ws://citihacks123.azurewebsites.net//citihacks/';
+  private urlPrefix = 'ws://127.0.0.1:8080/citihacks/';
+  // private urlPrefix = 'ws://citihacks123.azurewebsites.net//citihacks/';
 
   pullEvents(): Subject<any> {
     return this.connect(this.urlPrefix + 'endpoint/1?pull=Events');
+  }
+
+  registerUser(): Subject<any> {
+    return this.connect(this.urlPrefix + 'endpoint/2');
+  }
+
+  pullUserInfoByUserId(userId: string) {
+    return this.connect(this.urlPrefix + 'endpoint/2?pull=UserById&userId=' + userId);
+  }
+
+  pullMessagesByUserId(userId: string) {
+    return this.connect(this.urlPrefix + 'endpoint/3?pull=MessagesById&userId=' + userId);
   }
 
   private connect(url): Subject<any> {

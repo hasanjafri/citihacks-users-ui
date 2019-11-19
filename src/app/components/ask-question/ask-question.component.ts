@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { NotificationsService } from 'src/app/services/notifications.service';
+import { Subject } from 'rxjs';
+import { OVERLAY_DATA } from 'src/app/config/overlay.config';
+import { EventsService } from 'src/app/services/events.service';
 
 @Component({
   selector: 'app-ask-question',
@@ -16,17 +18,31 @@ export class AskQuestionComponent implements OnInit {
   locations = ['Canada', 'USA', 'Singapore', 'London', 'India', 'Dubai', 'Japan', 'China'];
   events = [];
 
+  enteredUserId: string;
   verifiedUserId: string;
+  verifyUserSubject: Subject<any>;
+  askedQuestion: string;
 
-  constructor(private notificationService: NotificationsService) {}
+  constructor(private eventsService: EventsService, @Inject(OVERLAY_DATA) public overlayProps) {}
 
   ngOnInit() {}
 
-  searchUser(evt) {
+  searchUser(evt, userId) {
     evt.preventDefault();
+    console.log(userId);
+    if (userId) {
+      this.verifyUserSubject = this.eventsService.pullUserInfoByUserId(userId);
+      this.verifyUserSubject.subscribe((resp) => {
+        const user = JSON.parse(resp.data);
+        console.log(user);
+      });
+      setTimeout(() => {
+        this.verifyUserSubject.next('pullEvent');
+      }, 2000);
+    }
   }
 
-  testSnack() {
-    this.notificationService.showNotification('HOLAAAA');
+  askQuestion(askQuestionForm) {
+    console.log(askQuestionForm);
   }
 }

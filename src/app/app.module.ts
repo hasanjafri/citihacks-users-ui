@@ -26,6 +26,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { QuestionsGridComponent } from './components/questions-grid/questions-grid.component';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { OVERLAY_DATA } from './config/overlay.config';
+import { OverlayService } from './services/overlay.service';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { HomeComponent } from './views/home/home.component';
 @NgModule({
@@ -63,7 +65,12 @@ import { HomeComponent } from './views/home/home.component';
     MatSnackBarModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: OVERLAY_DATA,
+      useClass: OverlayService
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [EventsListPopupComponent, AskQuestionComponent, NotificationComponent]
 })

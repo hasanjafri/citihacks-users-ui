@@ -1,7 +1,7 @@
-<ngu-carousel #carousel [inputs]="carouselTileConfig" [dataSource]="carouselTileItems | async">
+<ngu-carousel #carousel [inputs]="carouselTileConfig" [dataSource]="events">
   <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate">
-    <div class="tile">
-      <h1>{{ i + 1 }}</h1>
+    <div class="tile" [style.background]="'url(' + events[i].eventImage + ')'" (click)="openQuestionOverlay(events[i].eventId)">
+      <h1>{{ events[i].eventName }}</h1>
     </div>
   </ngu-tile>
 
@@ -9,7 +9,6 @@
   <button NguCarouselNext class="rightRs" [style.opacity]="carousel.isLast ? 0.5 : 1">&gt;</button>
 
   <ul class="pagination" NguCarouselPoint>
-    <li *ngFor="let i of carousel.pointNumbers; let i = index" [class.active]="i == carousel.activePoint"
-      (click)="carousel.moveTo(i)"></li>
+    <li *ngFor="let i of carousel.pointNumbers; let i = index" [class.active]="i == carousel.activePoint" (click)="carousel.moveTo(i)"></li>
   </ul>
 </ngu-carousel>
