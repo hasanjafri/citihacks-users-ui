@@ -1,3 +1,4 @@
+import { AgGridModule } from '@ag-grid-community/angular';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,6 +24,7 @@ import { SidenavListComponent } from './components/sidenav-list/sidenav-list.com
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { HomeComponent } from './views/home/home.component';
+import { QuestionsGridComponent } from './components/questions-grid/questions-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { HomeComponent } from './views/home/home.component';
     EventsListPopupComponent,
     EventDetailComponent,
     CarouselComponent,
-    AskQuestionComponent
+    AskQuestionComponent,
+    QuestionsGridComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { HomeComponent } from './views/home/home.component';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent],
