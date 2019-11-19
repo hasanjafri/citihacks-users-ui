@@ -10,6 +10,7 @@ export class QuestionsGridComponent {
   @Input() rowData: any = [];
 
   columnDefs = [
+    { headerName: 'Status', field: 'status', sortable: true, filter: true },
     { headerName: 'Event Name', field: 'eventName', sortable: true, filter: true },
     { headerName: 'Question', field: 'question', sortable: true, filter: true },
     { headerName: 'Presenter', field: 'presenter', sortable: true, filter: true },
