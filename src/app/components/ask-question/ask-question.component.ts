@@ -15,6 +15,8 @@ export class AskQuestionComponent implements OnInit {
   locations = ['Canada', 'USA', 'Singapore', 'London', 'India', 'Dubai', 'Japan', 'China'];
   events = [];
 
+  verifiedUserId: string;
+
   constructor() {}
 
   ngOnInit() {}
