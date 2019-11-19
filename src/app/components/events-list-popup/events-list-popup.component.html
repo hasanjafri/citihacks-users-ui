@@ -1,12 +1,17 @@
-<div class="events-popup-container">
-  <h2 class="events-popup-title">Events happening right now...</h2>
-  <mat-list>
-    <mat-list-item class="event" *ngFor="let event of events">
-      <img matListAvatar [src]="event.img" alt="event.name" />
-      <h3 matLine class="event-name">{{ event.name }}</h3>
-      <p matLine class="event-description">
-        <span> {{ event.description }} </span>
-      </p>
-    </mat-list-item>
-  </mat-list>
-</div>
+<mat-card class="mat-typography">
+  <mat-card-title class="padding-t10 padding-x10">Live Events</mat-card-title>
+  <mat-card-subtitle class="padding-x10">
+    Use this list to select a live event to ask a question in
+  </mat-card-subtitle>
+  <mat-card-content class="padding-x10">
+    <mat-list>
+      <mat-list-item class="event" *ngFor="let event of events">
+        <img matListAvatar [src]="event.img" alt="event.name" />
+        <h3 matLine class="event-name">{{ event.name }}</h3>
+        <p matLine class="event-description">
+          <span> {{ event.description }} </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

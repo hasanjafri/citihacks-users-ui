@@ -20,6 +20,24 @@ export class ToolbarComponent {
     }
   ];
 
+  notifications = [
+    {
+      img: '../../../assets/avatar.png',
+      name: 'Sample Notification 1',
+      description: 'Sample Message 1'
+    },
+    {
+      img: '../../../assets/avatar.png',
+      name: 'Sample Notification 2',
+      description: 'Sample Message 2'
+    },
+    {
+      img: '../../../assets/avatar.png',
+      name: 'Sample Notification 3',
+      description: 'Sample Message 3'
+    }
+  ];
+
   @Output() sidenavToggled = new EventEmitter();
 
   constructor(private overlayService: OverlayService) {}

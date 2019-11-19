@@ -1,21 +1,6 @@
-.events-popup-container {
-  background-color: white;
-
-  .events-popup-title {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-  }
-
-  .event-name,
-  .event-description {
-    color: black;
-  }
-
-  .event {
-    &:hover {
-      cursor: pointer;
-      background-color: rgb(182, 179, 179);
-    }
+.event {
+  &:hover {
+    background-color: #272626;
+    cursor: pointer;
   }
 }

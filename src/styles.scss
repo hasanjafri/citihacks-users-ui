@@ -21,3 +21,33 @@ body {
 .mat-list-base {
   padding-top: 0 !important;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.padding-x10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.padding-t10 {
+  padding-top: 10px;
+}
+
+.mat-card>.mat-card-actions:last-child {
+  padding-bottom: 10px;
+}
+
+.notification-container {
+  background-color: #424242;
+
+  span {
+    color: hotpink;
+  }
+}
+
+.mat-menu-content:not(:empty) {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}

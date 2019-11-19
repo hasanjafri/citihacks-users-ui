@@ -7,6 +7,11 @@
   <button mat-button class="title"> CitiHacks Users UI </button>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="20px">
+      <li class="toolbar-icon" [matMenuTriggerFor]="menu">
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+      </li>
       <li #toolbarIcons *ngFor="let item of toolbarIcons" class="toolbar-icon" (click)="item.click()">
         <button mat-icon-button>
           <mat-icon> {{ item.icon }} </mat-icon>
@@ -15,3 +20,15 @@
     </ul>
   </div>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <mat-list>
+    <mat-list-item class="notification" *ngFor="let notification of notifications">
+      <img matListAvatar [src]="notification.img" alt="notification.name" />
+      <h3 matLine class="notification-name">{{ notification.name }}</h3>
+      <p matLine class="notification-description">
+        <span> {{ notification.description }} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</mat-menu>

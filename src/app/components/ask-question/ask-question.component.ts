@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-ask-question',
@@ -17,11 +18,15 @@ export class AskQuestionComponent implements OnInit {
 
   verifiedUserId: string;
 
-  constructor() {}
+  constructor(private notificationService: NotificationsService) {}
 
   ngOnInit() {}
 
   searchUser(evt) {
     evt.preventDefault();
+  }
+
+  testSnack() {
+    this.notificationService.showNotification('HOLAAAA');
   }
 }
