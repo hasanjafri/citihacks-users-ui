@@ -28,8 +28,12 @@ export class AskQuestionComponent implements OnInit {
   events = [];
   tempData = [];
   private eventsSubject: Subject<any>;
+  private userRegisterSubject: Subject<any>;
 
   enteredUserId: string;
+  enteredUserName: string;
+  selectedDepartment: string;
+  selectedLocation: string;
   verifiedUserId: string;
   verifiedUserName: string;
   verifiedDepartment: string;
@@ -45,7 +49,6 @@ export class AskQuestionComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.overlayProps);
     this.eventsSubject = this.eventsService.pullEvents();
     this.eventsSubject.subscribe(eventData => {
       const eventsData = JSON.parse(eventData.data);
@@ -65,6 +68,11 @@ export class AskQuestionComponent implements OnInit {
     setTimeout(() => {
       this.eventsSubject.next("pullEvent");
     }, 2000);
+
+    this.userRegisterSubject = this.eventsService.registerUser();
+    this.userRegisterSubject.subscribe(() => {
+      this.registered = true;
+    });
   }
 
   checkNonDuplicateEvent(event) {
