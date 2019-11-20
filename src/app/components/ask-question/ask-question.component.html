@@ -1,20 +1,48 @@
 <mat-card class="mat-typography">
-  <mat-card-title class="padding-t10 padding-x10">Ask A Question</mat-card-title>
+  <mat-card-title class="padding-t10 padding-x10">{{
+    registered ? "Ask A Question" : "Sign Up"
+  }}</mat-card-title>
   <mat-card-subtitle class="padding-x10">
-    Use this form to ask a question for a live event
+    {{
+      registered
+        ? "Use this form to ask a question for a live event"
+        : "Use this form to register"
+    }}
   </mat-card-subtitle>
   <mat-card-content class="padding-x10">
-    <form #askQuestionForm="ngForm" (ngSubmit)="askQuestion(askQuestionForm)" class="ask-question-form">
+    <form
+      #askQuestionForm="ngForm"
+      *ngIf="registered"
+      (ngSubmit)="askQuestion(askQuestionForm)"
+      class="ask-question-form"
+    >
       <mat-form-field class="full-width">
         <mat-label>User ID</mat-label>
-        <button mat-icon-button matSuffix (click)="searchUser($event, enteredUserId)">
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="searchUser($event, enteredUserId)"
+        >
           <mat-icon>search</mat-icon>
         </button>
-        <input matInput [(ngModel)]="enteredUserId" placeholder="User ID" name="user_id" required />
+        <input
+          matInput
+          [(ngModel)]="enteredUserId"
+          placeholder="User ID"
+          name="user_id"
+          required
+        />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>User Name</mat-label>
-        <input matInput [(ngModel)]="verifiedUserName" placeholder="User Name" name="user_name" [disabled]="!verifiedUserId" required />
+        <input
+          matInput
+          [(ngModel)]="verifiedUserName"
+          placeholder="User Name"
+          name="user_name"
+          [disabled]="!verifiedUserId"
+          required
+        />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Department</mat-label>
@@ -26,11 +54,16 @@
           required
         >
           <mat-option>--</mat-option>
-          <mat-option *ngFor="let department of departments" [value]="department">
+          <mat-option
+            *ngFor="let department of departments"
+            [value]="department"
+          >
             {{ department }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="departmentControl.hasError('required')">Please choose a department</mat-error>
+        <mat-error *ngIf="departmentControl.hasError('required')"
+          >Please choose a department</mat-error
+        >
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Location</mat-label>
@@ -46,17 +79,27 @@
             {{ location }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="locationControl.hasError('required')">Please choose a location</mat-error>
+        <mat-error *ngIf="locationControl.hasError('required')"
+          >Please choose a location</mat-error
+        >
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Event</mat-label>
-        <mat-select [(ngModel)]="events[selectedEvent]" name="event" [formControl]="eventControl" [disabled]="!verifiedUserId" required>
+        <mat-select
+          [(ngModel)]="events[selectedEvent]"
+          name="event"
+          [formControl]="eventControl"
+          [disabled]="!verifiedUserId"
+          required
+        >
           <mat-option>--</mat-option>
           <mat-option *ngFor="let event of events" [value]="event">
             {{ event.eventName }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="eventControl.hasError('required')">Please choose a event</mat-error>
+        <mat-error *ngIf="eventControl.hasError('required')"
+          >Please choose a event</mat-error
+        >
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Message</mat-label>
@@ -69,7 +112,15 @@
           required
         ></textarea>
       </mat-form-field>
-      <button mat-raised-button type="submit" color="primary">ASK QUESTION</button>
+      <button mat-raised-button type="submit" color="primary">
+        ASK QUESTION
+      </button>
     </form>
+    <form
+      #registerForm="ngForm"
+      *ngIf="!registered"
+      (ngSubmit)="registerUser(registerForm)"
+      class="ask-question-form"
+    ></form>
   </mat-card-content>
 </mat-card>
